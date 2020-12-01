@@ -1,3 +1,19 @@
+# IDE
+.vs
+.vscode
+.idea
+
+# Archives
+data/archives 
+*.zip
+*.7z
+*.tar
+*.tar.gz
+
+# Training Data
+# data/
+*.nii
+
 # Byte-compiled / optimized / DLL files
 __pycache__/
 *.py[cod]
