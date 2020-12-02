@@ -1,8 +1,5 @@
 import os
 import sys
-from google.colab import files
-from google.colab import drive
-drive.mount('/content/drive')
 # -----------------------Path related parameters---------------------------------------
 
 if sys.platform == 'win32':
