@@ -21,7 +21,7 @@ import parameter as para
 
 class Dataset(dataset):
     def __init__(self, ct_dir, seg_dir):
-        self.ct_list = [f for f in os.listdir(ct_dir) if re.match(r'.*volume.*', f)]
+        self.ct_list = [f for f in os.listdir(ct_dir) if re.match(r'.*volume.*', f)][:10]
         self.seg_list = list(map(lambda x: x.replace('volume', 'segmentation'), self.ct_list))
 
         self.ct_list = list(map(lambda x: os.path.join(ct_dir, x), self.ct_list))

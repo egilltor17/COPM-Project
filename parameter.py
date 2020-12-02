@@ -53,7 +53,7 @@ learning_rate = 1e-4
 learning_rate_decay = [500, 750]
 alpha = 0.33                                # In-depth supervision attenuation coefficient
 batch_size = 1
-num_workers = 3
+num_workers = 1
 pin_memory = True
 cudnn_benchmark = True
 
