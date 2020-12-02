@@ -1,14 +1,13 @@
 """
 
-Dice loss
+Exponential Logarithmic Dice loss
 """
 
 import torch
 import torch.nn as nn
 
 
-class DiceLoss(nn.Module):
-
+class ELDiceLoss(nn.Module):
     def __init__(self):
         super().__init__()
 
@@ -23,4 +22,4 @@ class DiceLoss(nn.Module):
                                             target.pow(2).sum(dim=1).sum(dim=1).sum(dim=1) + smooth)
 
         # 返回的是dice距离
-        return torch.clamp((1 - dice).mean(), 0, 1)
+        return torch.clamp((torch.pow(-torch.log(dice + 1e-5), 0.3)).mean(), 0, 2)

@@ -1,16 +1,18 @@
 """
 
-Dice loss
+Dice loss + BCE loss
 """
 
 import torch
 import torch.nn as nn
 
 
-class DiceLoss(nn.Module):
-
+class HybridLoss(nn.Module):
     def __init__(self):
         super().__init__()
+
+        self.bce_loss = nn.BCELoss()
+        self.bce_weight = 1.0
 
     def forward(self, pred, target):
 
@@ -22,5 +24,5 @@ class DiceLoss(nn.Module):
         dice = 2 * (pred * target).sum(dim=1).sum(dim=1).sum(dim=1) / (pred.pow(2).sum(dim=1).sum(dim=1).sum(dim=1) +
                                             target.pow(2).sum(dim=1).sum(dim=1).sum(dim=1) + smooth)
 
-        # 返回的是dice距离
-        return torch.clamp((1 - dice).mean(), 0, 1)
+        # 返回的是dice距离 +　二值化交叉熵损失
+        return torch.clamp((1 - dice).mean(), 0, 1) + self.bce_loss(pred, target) * self.bce_weight

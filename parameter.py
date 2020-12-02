@@ -1,17 +1,28 @@
 import os
+import sys
 # -----------------------Path related parameters---------------------------------------
 
-base_path = os.path.abspath(os.getcwd()).replace('\\', '/') + '/'
-print(base_path)
+if sys.platform == 'win32':
+    base_path = os.path.abspath(os.getcwd()).replace('\\', '/') + '/'
 
-train_ct_path     = base_path + 'data/LITS/Training_Batch_2/'
-train_seg_path    = base_path + 'data/LITS/Training_Batch_2/'
-test_ct_path      = base_path + 'data/LITS/Training_Batch_1/'
-test_seg_path     = base_path + 'data/LITS/Training_Batch_1/'
-training_set_path = base_path + 'data/LITS/Testing_Batch_1/'
-pred_path         = base_path + 'data/LITS/prediction/' 
-crf_path          = base_path + 'data/LITS/crf/'
-module_path       = base_path + 'data/models/net.pth'
+    train_ct_path     = base_path + 'data/LITS/Training_Batch_2/'
+    train_seg_path    = base_path + 'data/LITS/Training_Batch_2/'
+    test_ct_path      = base_path + 'data/LITS/Training_Batch_1/'
+    test_seg_path     = base_path + 'data/LITS/Training_Batch_1/'
+    training_set_path = base_path + 'data/LITS/Testing_Batch_1/'
+    pred_path         = base_path + 'data/LITS/prediction/' 
+    crf_path          = base_path + 'data/LITS/crf/'
+    module_path       = base_path + 'data/models/net.pth' 
+else:
+    base_path = '/content/drive/MyDrive/Colab Notebooks/COMP-Project/'
+    train_ct_path     = base_path + 'train/Training Batch 2/'
+    train_seg_path    = base_path + 'train/Training Batch 2/'
+    test_ct_path      = base_path + 'train/Training Batch 1/'
+    test_seg_path     = base_path + 'train/Training Batch 1/'
+    training_set_path = base_path + 'test/'
+    pred_path         = base_path + 'prediction/' 
+    crf_path          = base_path + 'crf/'
+    module_path       = base_path + 'models/net.pth'
 
 # -----------------------Path related parameters---------------------------------------
 
