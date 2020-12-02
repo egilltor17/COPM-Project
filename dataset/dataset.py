@@ -8,6 +8,7 @@ import sys
 sys.path.append(os.path.split(sys.path[0])[0])
 
 import random
+import regex as re
 
 import numpy as np
 import SimpleITK as sitk
@@ -20,9 +21,8 @@ import parameter as para
 
 class Dataset(dataset):
     def __init__(self, ct_dir, seg_dir):
-
-        self.ct_list = os.listdir(ct_dir)
-        self.seg_list = list(map(lambda x: x.replace('volume', 'segmentation').replace('.nii', '.nii.gz'), self.ct_list))
+        self.ct_list = [f for f in os.listdir(ct_dir) if re.match(r'.*volume.*', f)]
+        self.seg_list = list(map(lambda x: x.replace('volume', 'segmentation'), self.ct_list))
 
         self.ct_list = list(map(lambda x: os.path.join(ct_dir, x), self.ct_list))
         self.seg_list = list(map(lambda x: os.path.join(seg_dir, x), self.seg_list))

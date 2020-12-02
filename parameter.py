@@ -14,15 +14,15 @@ if sys.platform == 'win32':
     crf_path          = base_path + 'data/LITS/crf/'
     module_path       = base_path + 'data/models/net.pth' 
 else:
-    base_path = '/content/drive/MyDrive/Colab Notebooks/COMP-Project/'
+    base_path = '/content/drive/MyDrive/Colab Notebooks/data/'
     train_ct_path     = base_path + 'train/Training Batch 2/'
     train_seg_path    = base_path + 'train/Training Batch 2/'
     test_ct_path      = base_path + 'train/Training Batch 1/'
     test_seg_path     = base_path + 'train/Training Batch 1/'
-    training_set_path = base_path + 'test/'
+    training_set_path = base_path + 'train/Training Batch 1/'
     pred_path         = base_path + 'prediction/' 
     crf_path          = base_path + 'crf/'
-    module_path       = base_path + 'models/net.pth'
+    module_path       = base_path + 'models/'
 
 # -----------------------Path related parameters---------------------------------------
 

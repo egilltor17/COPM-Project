@@ -139,28 +139,28 @@ class ResUNet(nn.Module):
         # Finally, the mapping under the large scale (256*256), the scales below decrease in order
         self.map4 = nn.Sequential(
             nn.Conv3d(32, 1, 1, 1),
-            nn.Upsample(scale_factor=(1, 2, 2), mode='trilinear'),
+            nn.Upsample(scale_factor=(1, 2, 2), mode='trilinear', align_corners=False),
             nn.Sigmoid()
         )
 
         # Mapping at 128*128 scale
         self.map3 = nn.Sequential(
             nn.Conv3d(64, 1, 1, 1),
-            nn.Upsample(scale_factor=(2, 4, 4), mode='trilinear'),
+            nn.Upsample(scale_factor=(2, 4, 4), mode='trilinear', align_corners=False),
             nn.Sigmoid()
         )
 
         # Mapping at 64*64 scale
         self.map2 = nn.Sequential(
             nn.Conv3d(128, 1, 1, 1),
-            nn.Upsample(scale_factor=(4, 8, 8), mode='trilinear'),
+            nn.Upsample(scale_factor=(4, 8, 8), mode='trilinear', align_corners=False),
             nn.Sigmoid()
         )
 
         # Mapping at 32*32 scale
         self.map1 = nn.Sequential(
             nn.Conv3d(256, 1, 1, 1),
-            nn.Upsample(scale_factor=(8, 16, 16), mode='trilinear'),
+            nn.Upsample(scale_factor=(8, 16, 16), mode='trilinear', align_corners=False),
             nn.Sigmoid()
         )
 
