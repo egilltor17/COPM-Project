@@ -1,0 +1,26 @@
+{
+    "os": "Linux-4.19.112+-x86_64-with-Ubuntu-18.04-bionic",
+    "python": "3.6.9",
+    "heartbeatAt": "2020-12-02T23:40:25.489968",
+    "startedAt": "2020-12-02T23:40:24.319262",
+    "docker": null,
+    "gpu": "Tesla T4",
+    "gpu_count": 1,
+    "cpu_count": 2,
+    "cuda": "10.1.243",
+    "args": [
+        "-f",
+        "/root/.local/share/jupyter/runtime/kernel-41bd7d1b-1733-4a12-ac10-b63343fe5afc.json"
+    ],
+    "state": "running",
+    "program": "<python with no main file>",
+    "git": {
+        "remote": "https://egilltor17:Fiskur144@github.com/egilltor17/COPM-Project.git",
+        "commit": "e349aa508bcb4d522f87cd43295f55f53a5ddf2b"
+    },
+    "email": null,
+    "root": "/content/drive/My Drive/Colab Notebooks/COPM-Project",
+    "host": "9fed1a1a2e92",
+    "username": "root",
+    "executable": "/usr/bin/python3"
+}

@@ -21,18 +21,20 @@ import parameter as para
 
 class Dataset(dataset):
     def __init__(self, ct_dir, seg_dir):
-        self.ct_list = [f for f in os.listdir(ct_dir) if re.match(r'.*volume.*', f)][:10]
+        self.ct_list = [f for f in os.listdir(ct_dir) if re.match(r'.*volume.*', f)][:50]
         self.seg_list = list(map(lambda x: x.replace('volume', 'segmentation'), self.ct_list))
+        # print(self.ct_list)
 
         self.ct_list = list(map(lambda x: os.path.join(ct_dir, x), self.ct_list))
         self.seg_list = list(map(lambda x: os.path.join(seg_dir, x), self.seg_list))
+        # print(self.ct_list)
 
     def __getitem__(self, index):
 
         ct_path = self.ct_list[index]
         seg_path = self.seg_list[index]
+        print(ct_path)
 
-        # 将CT和金标准读入到内存中
         ct = sitk.ReadImage(ct_path, sitk.sitkInt16)
         seg = sitk.ReadImage(seg_path, sitk.sitkUInt8)
 
